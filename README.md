@@ -17,7 +17,7 @@ git clone https://github.com/davidmakoto/WATCHER-csun-ubuntu24-devcontainer.git
 
 Change dir to new folder
 ```bash
-cd WATCHER-csun-ubuntu24-devcontainer.git
+cd WATCHER-csun-ubuntu24-devcontainer
 ```
 
 ```bash
