@@ -10,6 +10,16 @@ https://github.com/devcontainers/templates/tree/main/src/ubuntu
 
 # Running instructions
 
+Copy repo
+```bash
+git clone https://github.com/davidmakoto/WATCHER-csun-ubuntu24-devcontainer.git
+```
+
+Change dir to new folder
+```bash
+cd WATCHER-csun-ubuntu24-devcontainer.git
+```
+
 ```bash
 # build the devcontainer from the ./.devcontainer/.devcontainer.json file
 devcontainer up --workspace-folder .
