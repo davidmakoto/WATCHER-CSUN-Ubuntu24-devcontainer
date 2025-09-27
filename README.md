@@ -9,8 +9,11 @@ Docker
 
 # Running instructions
 
-# build the devcontainer from the ./.devcontainer/.devcontainer.json file
+```bash
+\# build the devcontainer from the ./.devcontainer/.devcontainer.json file
 devcontainer up --workspace-folder .
 
-# run interactive bash session with the container
+\# run interactive bash session with the container
 devcontainer exec --workspace-folder . bash
+
+```
