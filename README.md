@@ -21,7 +21,7 @@ cd WATCHER-csun-ubuntu24-devcontainer
 ```
 
 ```bash
-# build the devcontainer from the ./.devcontainer/.devcontainer.json file
+# build the devcontainer from the ./.devcontainer/devcontainer.json file
 devcontainer up --workspace-folder .
 
 # run interactive bash session with the container
