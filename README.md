@@ -4,8 +4,9 @@ https://github.com/devcontainers/templates/tree/main/src/ubuntu
 
 # Requirements
 
-Devcontainer CLI
-Docker
+[Devcontainer CLI](https://github.com/devcontainers/cli)
+
+[Docker](https://www.docker.com/)
 
 # Running instructions
 
