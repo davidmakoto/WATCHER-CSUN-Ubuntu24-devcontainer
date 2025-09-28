@@ -20,17 +20,17 @@ Change dir to new folder
 cd WATCHER-csun-ubuntu24-devcontainer
 ```
 
+## Create dev container and install ROS2 (desktop) during build
+Note: there are still configurations needed to run the examples and you should read through the end of the docs at the very least
 ```bash
 # build the devcontainer from the ./.devcontainer/devcontainer.json file
+# this will trigger the devcontainer's postCreateCommand which is an exact 
+# copy of the ROS2 Jazzy Jalisco's documentation detailed install instructions
+# https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 devcontainer up --workspace-folder .
-
-# run interactive bash session with the container
-devcontainer exec --workspace-folder . bash
-
 ```
 
-
-# Next steps
-To install ROS2 from here follow the official documentation on how to do it via the cli
-
-https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
+## Create interactive bash shell with devcontainer
+```bash
+devcontainer exec --workspace-folder . bash
+```
