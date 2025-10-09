@@ -33,3 +33,13 @@ devcontainer up --workspace-folder .
 ```bash
 devcontainer exec --workspace-folder . bash
 ```
+
+
+
+### Troubleshooting
+If you need to rebuild the container after changes you can run this *--remove-existing-container* command to clear the existing container
+
+```bash
+# build the devcontainer from the ./.devcontainer/devcontainer.json file
+devcontainer up --workspace-folder . --remove-existing-container
+```
