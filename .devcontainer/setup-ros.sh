@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Exit on any error
 set -e
 
 echo "=== Setting up locale ==="
@@ -33,3 +32,15 @@ echo "=== Setting up ROS 2 environment ==="
 echo 'source /opt/ros/jazzy/setup.bash' >> ~/.bashrc
 
 echo "=== ROS 2 Jazzy installation complete! ==="
+
+echo "=== Installing Gazebo Harmonic ==="
+sudo apt-get update
+sudo apt-get install -y lsb-release gnupg
+
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y gz-harmonic
+
+echo "=== Gazebo Harmonic installation complete! ==="
+echo "=== All installations finished successfully! ==="
