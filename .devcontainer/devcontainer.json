@@ -16,13 +16,39 @@
 
     // Use 'postCreateCommand' to run commands after the container is created.
     // "postCreateCommand": "uname -a",
-    "postCreateCommand": "bash /workspaces/${localWorkspaceFolderBasename}/.devcontainer/setup-ros.sh"
+    "postCreateCommand": "bash /workspaces/${localWorkspaceFolderBasename}/.devcontainer/setup-ros.sh",
+    
+    // Run this every time the container starts to ensure X11 socket is accessible
+    "postStartCommand": "sudo ln -sf /mnt/wslg/.X11-unix /tmp/.X11-unix || true",
     
     // Configure tool-specific properties.
     // "customizations": {},
 
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-    // "remoteUser": "root"
+    // "remoteUser": "root",
+
+    // Environment variables for X11 forwarding (Windows with WSL2)
+    "containerEnv": {
+        "DISPLAY": ":0",
+        "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+        "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+        "PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+        "QT_X11_NO_MITSHM": "1",
+        "LIBGL_ALWAYS_INDIRECT": "0"
+    },
+
+    // Mount X11 socket and other required directories
+    "mounts": [
+        "type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix",
+        "type=bind,source=/mnt/wslg,target=/mnt/wslg"
+    ],
+
+    // Run arguments for GPU and display support
+    "runArgs": [
+        "--network=host",
+        "--privileged",
+        "-e", "NVIDIA_DRIVER_CAPABILITIES=all"
+    ]
 }
 
 
